@@ -1,3 +1,12 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.github.rholder:gradle-one-jar:1.0.4'
+    }
+}
+
 subprojects{
     apply plugin: 'java'
     repositories{
@@ -23,7 +32,14 @@ project (':server-core') {
 
 project (':tracker-core') {
     apply plugin: 'java-library-distribution'
+    apply plugin: 'gradle-one-jar'
+
     dependencies {
         compile project(':common')
     }
+
+    task fatJar(type: OneJar) {
+        mainClass = 'srduck.tracker.Main'
+    }
 }
+
