@@ -1,5 +1,8 @@
 package srduck.dto;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 /**
  * Created by igor on 05.07.2017.
  */
@@ -32,12 +35,9 @@ public class PointDTO {
         this.autoId = autoId;
     }
 
-    public String toJson() {
-        return "PointDTO{" +
-                "lat=" + lat +
-                ", lon=" + lon +
-                ", autoId='" + autoId + '\'' +
-                '}';
+    public String toJson() throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.writeValueAsString(this);
     }
 
     @Override
