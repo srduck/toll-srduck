@@ -7,12 +7,9 @@ import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Created by igor on 05.07.2017.
+ * Created by igor on 06.07.2017.
  */
-
-
 public class PointDTOTest {
-
     private String expected = "{\"lat\":56.0,\"lon\":74.0,\"autoId\":\"o567gfd\",\"time\":1499197515053}";
     private String autoId = "o567gfd";
 
