@@ -3,6 +3,7 @@ package srduck;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import srduck.services.InjectedService;
 
 /**
@@ -10,6 +11,7 @@ import srduck.services.InjectedService;
  */
 @Configuration
 @PropertySource("classpath:/app.properties")
+@EnableScheduling
 public class PropContext {
 
     @Bean
