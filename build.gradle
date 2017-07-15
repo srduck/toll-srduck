@@ -17,3 +17,6 @@ project (':injection') {
 
 project (':sheduling'){
 }
+
+project (':properties'){
+}
