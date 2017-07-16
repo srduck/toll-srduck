@@ -20,3 +20,6 @@ project (':sheduling'){
 
 project (':properties'){
 }
+
+project (':queue-fixed-rate'){
+}
