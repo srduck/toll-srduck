@@ -24,4 +24,10 @@ public class CounterController {
     public Long getCount(){
         return counter.incrementAndGet();
     }
+
+    @RequestMapping("/coords")
+    public Response getCoords(@RequestParam(value="location") String location){
+        System.out.println(location);
+        return new Response(true, "OK");
+    }
 }
