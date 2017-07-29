@@ -12,13 +12,14 @@ import java.net.URL;
  */
 public class RestConsumer {
     public static void main (String... args) throws IOException {
-        String response = IOUtils.toString(new URL("http://services.groupkt.com/country/get/iso2code/RU"),"UTF8");
+//        String response = IOUtils.toString(new URL("http://services.groupkt.com/country/get/iso2code/RU"),"UTF8");
+        String response = IOUtils.toString(new URL("http://localhost:8080/counter?name=The+Who"),"UTF8");
         System.out.println(response);
 
-        ObjectMapper objectMapper = new ObjectMapper();
+        /*ObjectMapper objectMapper = new ObjectMapper();
         Country country = objectMapper.readValue(response,Country.class);
         System.out.println(country.RestResponse.messages[0]);
         System.out.println(country.RestResponse.result.entrySet());
-        System.out.println(country.RestResponse.messages.length);
+        System.out.println(country.RestResponse.messages.length);*/
     }
 }
