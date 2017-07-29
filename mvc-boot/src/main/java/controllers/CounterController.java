@@ -27,6 +27,7 @@ public class CounterController {
 
     @RequestMapping("/coords")
     public Response getCoords(@RequestParam(value="location") String location){
+
         System.out.println(location);
 
         if (location.split(",").length != 2){
