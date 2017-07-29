@@ -10,7 +10,7 @@ import java.net.URL;
 /**
  * Created by igor on 29.07.2017.
  */
-public class RestConsumer {
+public class CyclicRestConsumer {
     public static void main (String... args) throws IOException,  InterruptedException {
 //        String response = IOUtils.toString(new URL("http://services.groupkt.com/country/get/iso2code/RU"),"UTF8");
         for(;;) {
