@@ -28,6 +28,12 @@ public class CounterController {
     @RequestMapping("/coords")
     public Response getCoords(@RequestParam(value="location") String location){
         System.out.println(location);
-        return new Response(true, "OK");
+
+        if (location.split(",").length != 2){
+            return new Response(false, "There isn't location");
+        }else {
+            return new Response(true, "OK");
+        }
+
     }
 }

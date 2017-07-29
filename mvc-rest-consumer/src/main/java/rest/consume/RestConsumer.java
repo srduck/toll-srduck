@@ -19,6 +19,12 @@ public class RestConsumer {
         response = IOUtils.toString(new URL("http://localhost:8080/coords?location=lat54.6,lon34.2"),"UTF8");
         System.out.println(response);
 
+        response = IOUtils.toString(new URL("http://localhost:8080/coords?location=lat54.6"),"UTF8");
+        System.out.println(response);
+
+        response = IOUtils.toString(new URL("http://localhost:8080/coords"),"UTF8");
+        System.out.println(response);
+
         /*ObjectMapper objectMapper = new ObjectMapper();
         Country country = objectMapper.readValue(response,Country.class);
         System.out.println(country.RestResponse.messages[0]);
