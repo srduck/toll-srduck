@@ -1,4 +1,4 @@
-package rest.consume;
+package domain;
 
 /**
  * Created by igor on 29.07.2017.

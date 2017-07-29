@@ -1,9 +1,12 @@
 package controllers;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import domain.Country;
 
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -12,6 +15,10 @@ import java.util.concurrent.atomic.AtomicLong;
  */
 @RestController
 public class CounterController {
+
+    @Autowired
+    RestTemplate restTemplate;
+
     private static final String template = "It's yours, %s!";
     private final AtomicLong counter = new AtomicLong();
 
@@ -36,5 +43,11 @@ public class CounterController {
             return new Response(true, "OK");
         }
 
+    }
+
+    @RequestMapping("/relay")
+    public Country relay(){
+        Country country = restTemplate.getForObject("http://services.groupkt.com/country/get/iso2code/RU", Country.class);
+        return country;
     }
 }

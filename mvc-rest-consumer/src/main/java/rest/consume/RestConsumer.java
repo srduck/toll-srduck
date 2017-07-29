@@ -1,6 +1,7 @@
 package rest.consume;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import domain.Country;
 import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;

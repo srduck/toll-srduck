@@ -1,4 +1,4 @@
-package rest.consume;
+package domain;
 
 import java.util.Map;
 
