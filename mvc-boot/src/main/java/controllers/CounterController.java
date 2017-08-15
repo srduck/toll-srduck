@@ -16,11 +16,14 @@ import java.util.concurrent.atomic.AtomicLong;
 @RestController
 public class CounterController {
 
-    @Autowired
-    RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
 
     private static final String template = "It's yours, %s!";
     private final AtomicLong counter = new AtomicLong();
+
+    public CounterController(@Autowired RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
 
     @RequestMapping("/counter")
     public CurrentState greeting(@RequestParam(value="name", defaultValue = "World") String name){

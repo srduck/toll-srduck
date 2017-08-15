@@ -18,7 +18,7 @@ import static org.mockito.Mockito.when;
 public class CounterControllerTest {
     @Test
     public void greeting() throws Exception {
-        CounterController controller = new CounterController();
+        CounterController controller = new CounterController(new RestTemplate());
         String name = "test name";
         CurrentState result = controller.greeting(name);
         assertEquals("It's yours, test name!", result.getContent());
@@ -32,14 +32,14 @@ public class CounterControllerTest {
 
     @Test
     public void getCount() throws Exception {
-        CounterController controller = new CounterController();
+        CounterController controller = new CounterController(new RestTemplate());
         assertEquals(1,(long) controller.getCount());
         assertEquals(2,(long) controller.getCount());
     }
 
     @Test
     public void getCoords() throws Exception {
-        CounterController controller = new CounterController();
+        CounterController controller = new CounterController(new RestTemplate());
         String coordinates = "54.3,43.2";
         Response response = controller.getCoords(coordinates);
         assertEquals("OK",response.getMessage());
@@ -61,6 +61,15 @@ public class CounterControllerTest {
         when(restTemplate.getForObject("http://services.groupkt.com/country/get/iso2code/RU", Country.class)).thenReturn(new Country());
         Country country = mockedController.relay();
         assertNotNull(country);
+    }
+
+    @Test
+    public void relayIntegration() throws Exception {
+        Country country = new CounterController(new RestTemplate()).relay();
+        assertNotNull(country);
+        System.out.println(country.RestResponse.result.entrySet());
+        assertEquals("RU", country.RestResponse.result.get("alpha2_code"));
+
     }
 
 }
