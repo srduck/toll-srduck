@@ -24,11 +24,9 @@ project (':spring-jdbc-template') {
     apply plugin: 'org.springframework.boot'
 
     dependencies {
-        compile("org.springframework.boot:spring-boot-starter-thymeleaf")
-        compile("org.springframework.boot:spring-boot-devtools")
-        testCompile("org.springframework.boot:spring-boot-starter-test")
-        testCompile group: 'org.mockito', name: 'mockito-core', version: '2.7.22'
-//        compile project (':common')
+        compile("org.springframework.boot:spring-boot-starter")
+        compile("org.springframework:spring-jdbc")
+        compile("com.h2database:h2")
     }
 
     jar {
@@ -42,41 +40,26 @@ project (':jdbc'){
     apply plugin: 'java'
 
     dependencies {
-        compile group: 'commons-io', name: 'commons-io', version: '2.5'
-        compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.7'
-      //  compile project (':common')
+        compile group: 'com.h2database', name: 'h2', version: '1.4.196'
     }
 
 }
 
-project (':spring-data-jpa'){
+
+project (':spring-data-jpa-migration'){
     apply plugin: 'java'
     apply plugin: 'org.springframework.boot'
 
     dependencies {
-        compile("org.springframework.boot:spring-boot-starter-thymeleaf")
-        compile("org.springframework.boot:spring-boot-devtools")
+        compile("org.springframework.boot:spring-boot-starter-web"){
+            exclude module: "spring-boot-starter-tomcat"
+        }
+        compile("org.springframework.boot:spring-boot-starter-data-jpa")
+        compile group: "org.liquibase", name: "liquibase-core", version: "3.5.3"
+        compile group: 'com.h2database', name: 'h2', version: '1.4.196'
         testCompile("org.springframework.boot:spring-boot-starter-test")
         testCompile group: 'org.mockito', name: 'mockito-core', version: '2.7.22'
-//        compile project (':common')
-    }
 
-    jar {
-        baseName = 'gessing-boot'
-        version =  '0.1.0'
-    }
-}
-
-project (':migration'){
-    apply plugin: 'java'
-    apply plugin: 'org.springframework.boot'
-
-    dependencies {
-        compile("org.springframework.boot:spring-boot-starter-thymeleaf")
-        compile("org.springframework.boot:spring-boot-devtools")
-        testCompile("org.springframework.boot:spring-boot-starter-test")
-        testCompile group: 'org.mockito', name: 'mockito-core', version: '2.7.22'
-//        compile project (':common')
     }
 
     jar {

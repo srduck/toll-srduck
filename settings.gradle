@@ -1,5 +1,4 @@
 //include 'simple-jsp'
 include 'jdbc'
 include 'spring-jdbc-template'
-include 'spring-data-jpa'
-include 'migration'
+include 'spring-data-jpa-migration'
