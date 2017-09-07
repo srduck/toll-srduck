@@ -1,0 +1,3 @@
+project(':many-console') {
+    apply plugin: 'java'
+}
