@@ -2,7 +2,6 @@ package srduck.controllers;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.slf4j.spi.LoggerFactoryBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,14 +13,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class ManyController {
 
     Logger log = LoggerFactory.getLogger(ManyController.class);
-
+    Object lock = new Object();
     private int counter;
 
     @RequestMapping("/increment")
     public State increment(){
         log.info(Thread.currentThread().getName() + " /increment");
-        for (int i = 0; i < 1000; i++){
-            counter++;
+        for (int i = 0; i < 10000; i++){
+            synchronized (lock) {
+                counter++;
+            }
         }
         return new State("ok");
     }
