@@ -28,3 +28,9 @@ project(':many-boot') {
 project(':many-console') {
     apply plugin: 'java'
 }
+
+project(':synchess') {}
+
+project(':exchange'){}
+
+project(':pool-future'){}
