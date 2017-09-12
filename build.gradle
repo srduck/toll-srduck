@@ -34,3 +34,5 @@ project(':synchess') {}
 project(':exchange'){}
 
 project(':pool-future'){}
+
+project(':exercise'){}
